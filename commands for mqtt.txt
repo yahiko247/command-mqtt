@@ -1,0 +1,19 @@
+Windows command to start mqtt broker
+
+net start mosquitto
+
+mosquitto -v -c text.config
+
+
+
+
+
+ubuntu
+systemctl startus mosquitto.service
+systemctl stop mosquitto.service
+mosquitt -v
+
+
+for ip address
+
+mosquitto -c (directory of the test.config) -v
