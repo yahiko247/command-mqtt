@@ -17,3 +17,43 @@ mosquitt -v
 for ip address
 
 mosquitto -c (directory of the test.config) -v
+
+
+
+How to Fix This
+1. Check for Processes Using Port 1883
+
+Run the following command to identify what is using the port:
+
+sudo netstat -tuln | grep :1883
+
+Or, using lsof:
+
+sudo lsof -i :1883
+
+This will show the process ID (PID) of the program using port 1883.
+2. Kill the Conflicting Process
+
+If you find another process using the port and it's unnecessary, terminate it:
+
+sudo kill <PID>
+
+Replace <PID> with the actual process ID from the output.
+3. Restart Mosquitto
+
+After terminating the conflicting process, restart Mosquitto:
+
+mosquitto -c /home/ceowtoo/Documents/config/config.txt -v
+
+
+
+
+
+the error Operation not permitted when trying to kill a process typically indicates a permissions issue. Since the mosquitto process is running under a different user or as a system service, you need elevated privileges to terminate it.
+
+Here’s how to proceed:
+1. Use sudo to Kill the Process
+
+Run the kill command with sudo:
+
+sudo kill 8803
